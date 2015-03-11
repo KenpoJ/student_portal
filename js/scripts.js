@@ -7,7 +7,7 @@ function student_search() {
 	if(search_str !== '') {
 		$.ajax({
 			type: 'POST',
-			url: 'search.php',
+			url: 'inc/search.php',
 			data: {query: search_str},
 			cache: false,
 			success: function(html) {

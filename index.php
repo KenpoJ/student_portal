@@ -14,6 +14,7 @@ if(isset($_SESSION['login_user'])){
 
 <?php include_once('inc/header.php'); ?>
 
+<div class="content">
 <div class="container">
 	<div class="row">
 		<div id="general-form" class="col-md-4 col-md-offset-4 well well-small">
@@ -35,5 +36,8 @@ if(isset($_SESSION['login_user'])){
 		</div>
 	</div>
 </div>
+</div>
+
+<?php include_once('inc/footer.php'); ?>
 </body>
 </html>

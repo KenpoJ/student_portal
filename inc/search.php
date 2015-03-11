@@ -1,6 +1,6 @@
 <?php
-include_once('inc/db_connection.php');
-include_once('inc/functions.php');
+include_once('db_connection.php');
+include_once('functions.php');
 global $connection;
 
 $str = $_POST['query'];

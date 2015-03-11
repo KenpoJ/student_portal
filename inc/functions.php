@@ -162,7 +162,7 @@ function get_single_user($ranks_id, $programs_id, $id) {
 
 	$output = '<a type="button" class="close" href="manage_profile.php"><span class="glyphicon glyphicon-pencil"></span>Edit</a>';
 	$output .= '<!--img src="images/students/image_name.jpg" alt="Jenny Phillips"-->
-			<img class="pull-left" src="http://placehold.it/60x60" alt="Jenny Phillips">';
+			<img class="pull-left" src="http://placehold.it/60x60" alt="' . $data['first_name'] . ' ' . $data['last_name'] . '">';
 	$output .= '<h3>' . $data['first_name'] . ' ' . $data['last_name'] . '</h3>';
 	$output .= '<p class="rank">' . $data['rank'] . ' Belt</p>';
 	$output .= '<p class="program">' . $data['program'] . '</p>';

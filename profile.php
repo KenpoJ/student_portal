@@ -50,8 +50,8 @@ $end = $end_time->format('g:ia');
 					<div class="col-md-4">
 						<h3><?php echo $rank_name; ?> Belt</h3>
 						<h4><?php echo $program_name; ?> Program</h4>
-						<a href="rank_advancement.php" class="btn btn-sm btn-danger"><strong>All <?php echo $next_rank_name; ?> Belt</strong> Requirements</a>
-						<a href="rank_advancement.php" class="btn btn-sm btn-danger"><strong> Previous Belts</strong></a>
+						<!--a href="rank_advancement.php" class="btn btn-sm btn-danger"><strong>All <?php echo $next_rank_name; ?> Belt</strong> Requirements</a-->
+						<a href="rank_advancement.php" class="btn btn-sm btn-danger"><strong>See Belt Requirements</strong></a>
 						<!--h3><?php echo $next_rank_name; ?> Belt Sets</h3-->
 						<?php //echo get_sets($ranks_id); ?>
 					</div>
