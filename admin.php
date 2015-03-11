@@ -20,6 +20,7 @@ $programs_id = $user_data['programs_id'];
 
 <?php include_once('inc/header.php'); ?>
 
+<div class="content">
 <div class="container">
 
 	<div class="row row-margin">
@@ -53,6 +54,7 @@ $programs_id = $user_data['programs_id'];
 		</div>
 	</div>
 
+</div>
 </div>
 
 <?php include_once('inc/footer.php'); ?>

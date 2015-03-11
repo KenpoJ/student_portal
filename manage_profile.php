@@ -14,6 +14,7 @@ $title = 'Manage My Profile - DSSD Student Portal';
 
 <?php include_once('inc/header.php'); ?>
 
+<div class="content">
 <div class="container">
 
 	<div class="row row-margin">
@@ -90,6 +91,7 @@ $title = 'Manage My Profile - DSSD Student Portal';
 		<?php changeUserInfo(); ?>
 	</div>
 
+</div>
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

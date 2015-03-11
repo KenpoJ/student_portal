@@ -31,6 +31,7 @@ $end = $end_time->format('g:ia');
 
 <?php include_once('inc/header.php'); ?>
 
+<div class="content">
 <div class="container">
 
 	<div class="row row-margin">
@@ -112,6 +113,7 @@ $end = $end_time->format('g:ia');
 		</div>
 	</div>
 
+</div>
 </div>
 
 <?php include_once('inc/footer.php'); ?>

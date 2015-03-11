@@ -14,6 +14,7 @@ $ranks = get_advancements_ranks($session['ranks_id'], $session['programs_id']);
 
 <?php include_once('inc/header.php'); ?>
 
+<div class="content">
 <div class="container">
 
 	<div class="row row-margin">
@@ -50,6 +51,7 @@ $ranks = get_advancements_ranks($session['ranks_id'], $session['programs_id']);
 		<div class="col-md-8 display"></div>
 	</div>
 
+</div>
 </div>
 
 <?php include_once('inc/footer.php'); ?>
