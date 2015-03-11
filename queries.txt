@@ -1,0 +1,25 @@
+----------
+|T1       |
+|---------|
+|id       |
+|name     |
+-----------
+
+----------
+|T2       |
+|---------|
+|id       |
+|name     |
+-----------
+
+----------
+|intT     |
+|---------|
+|T1_id    |
+|T2_id    |
+-----------
+
+SELECT * FROM T1
+INNER JOIN intT ON T1_id = T1.id
+INNER JOIN T2 ON T2.id = intT.T2_id
+WHERE T2.id = somevalue

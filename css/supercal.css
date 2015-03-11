@@ -1,0 +1,10 @@
+.supercal {
+  width: 100%;
+}
+.supercal-month {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */

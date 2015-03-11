@@ -1,0 +1,278 @@
+body {
+	font-family: @fontBody;
+	font-size: 13px;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 12px 0;
+	font-family: @fontHeading;
+}
+label {
+	margin-bottom: 3px;
+}
+a {
+	color: @redDark;
+}
+a:hover {
+	color: @defaultRed;
+}
+img.pull-left {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.container {
+	padding-bottom: 20px;
+	
+	h2 {
+		font-size: 1.7em;
+	}
+}
+
+.row-margin {
+	margin-top: 12px;
+}
+
+header {
+	width: 100%;
+	height: 60px;
+	font-weight: bold;
+	color: @brownOrangeLighter;
+	background: @defaultRed;
+	border-bottom: 5px solid @redDark;
+
+	h1 {
+		padding-top: 6px;
+		font-size: 2.5em;
+		color: @brownOrangeLighter;
+	}
+	nav {
+
+		li {
+			display: inline-block;
+		}
+		.btn-link {
+			font-weight: 700;
+			color: @brownOrangeLighter;
+			transition: color .3s ease-out;
+		}
+	}
+}
+
+footer {
+	padding-top: 12px;
+	width: 100%;
+	height: 48px;
+	/*position: fixed;
+	bottom: 0;*/
+	color: @brownOrangeLighter;
+	background: @defaultRed;
+	border-top: 5px solid @redDark;
+}
+
+.panel {
+	border: 1px solid @lightBrown;
+
+	.close {
+		margin-top: -35px;
+		font-weight: normal;
+		font-size: 100%;
+		color: @brownOrangeLight;
+		opacity: .7;
+	}
+}
+
+
+/*----------------------------------------
+FORM STYLES
+----------------------------------------*/
+#general-form {
+	margin-top: 30px;
+}
+legend {
+	margin-bottom: 12px;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+
+/*----------------------------------------
+STUDENT INFO
+----------------------------------------*/
+.user-info {
+
+	h3, h4, h5, h6 {
+		margin-bottom: 0;
+	}
+	h3 {
+		margin-bottom: 4px;
+		font-size: 120%;
+	}
+	address, .emergency-contact {
+		margin: 8px 0;
+	}
+	address {
+		line-height: 1.1em;
+	}
+	.phone {
+		font-size: 110%;
+		font-style: italic;
+	}
+	.close {
+		font-size: 100%;
+	}
+	ul {
+		padding-top: 5px;
+		border-top: 1px solid #DDD;
+
+		li {
+			padding-top: 5px;
+			margin-bottom: 5px;
+			border-bottom: 1px solid #DDD;
+		}
+	}
+	a.btn {
+		margin: 8px 0;
+	}
+	.tech-list {
+
+		li {
+			padding-bottom: 8px;
+			list-style-position: inside;
+			border-bottom: none;
+		}
+	}
+}
+
+/*----------------------------------------
+ANNOUNCEMENTS
+----------------------------------------*/
+#announcements {
+	
+	li {
+		margin-bottom: 12px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #CECECE;
+
+		h4 {
+			margin: 0;
+		}
+		.message {
+			padding: 8px 0;
+		}
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/*----------------------------------------
+STUDENT LIST
+----------------------------------------*/
+#student-list {
+	
+	li {
+		margin: 3px auto;
+		padding: 15px 10px;
+		overflow: hidden;
+		width: 99%;
+		background: #F5F5F5;
+		border: 1px solid #E3E3E3;
+		border-radius: 4px;
+		transition: background .3s ease-out,
+			border .3s ease-out,
+			width .5s ease-out,
+			margin .5s ease-out;
+
+		img {
+			margin-bottom: 0;
+		}
+	}
+	li:hover {
+		margin: 0 auto;
+		width: 100%;
+		background: #FFF;
+		border: 1px solid @lightBrown + #444;
+	}
+	li:first-child {
+		margin-top: 0;
+	}
+}
+
+.pagination > li.page-info {
+	display: block;
+	text-align: right;
+}
+
+/*----------------------------------------
+REQUIREMENTS PAGE
+----------------------------------------*/
+.requirements {
+	
+	.ranks, .types, .lists {
+		padding-left: 0;
+		padding-right: 0;
+		min-height: 400px;
+		background: #F3F3F3;
+		border-right: 1px solid @brownMedium + #999;
+		border-radius: 0 4px 4px 0;
+
+		ul, ol {
+			margin-left: -8px;
+			list-style-position: inside;
+
+			li {
+				padding: 8px 0 8px 15px;
+			}
+			li:hover {
+				cursor: pointer;
+				color: #FFF;
+				background: @redDark;
+			}
+		}
+	}
+	.ranks {
+		position: relative;
+		z-index: 10;
+	}
+	.types {
+		position: relative;
+		z-index: 5;
+	}
+	.lists {
+		position: relative;
+		z-index: 1;
+	}
+	.display {
+		background: #FFF;
+		border-right: none;
+
+		h3 {
+			font-size: 130%;
+		}
+		.image {
+
+			button {
+				margin-top: 15px;
+			}
+		}
+		.description {
+
+			ol {
+				margin-left: 15px;
+
+				li {
+					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}
+.req-highlight {
+	color: #FFF;
+	background: @defaultRed;
+}
+.lists-item {
+	
+}
+
+
