@@ -245,6 +245,9 @@ REQUIREMENTS PAGE
 .requirements .display .image button {
   margin-top: 15px;
 }
+.requirements .display .description h4 small {
+  font-size: 95%;
+}
 .requirements .display .description ol {
   margin-left: 15px;
 }
