@@ -22,7 +22,7 @@ $ranks = get_advancements_ranks($session['ranks_id'], $session['programs_id']);
 	</div>
 
 	<div class="row row-margin requirements">
-		<div class="col-md-1 ranks">
+		<div class="col-md-1 col-xs-4 ranks">
 			<ul class="list-unstyled">
 				<?php
 				while($row = mysqli_fetch_array($ranks)) {
@@ -31,14 +31,14 @@ $ranks = get_advancements_ranks($session['ranks_id'], $session['programs_id']);
 				?>
 			</ul>
 		</div>
-		<div class="col-md-1 types">
+		<div class="col-md-1 col-xs-4 types">
 			<ul class="list-unstyled">
 				<li id="techniques">Techniques <span class="glyphicon glyphicon-menu-right"></span></li>
 				<li id="forms">Forms <span class="glyphicon glyphicon-menu-right"></span></li>
 				<li id="sets">Sets <span class="glyphicon glyphicon-menu-right"></span></li>
 			</ul>
 		</div>
-		<div class="col-md-2 lists">
+		<div class="col-md-2 col-xs-4 lists">
 			<ol>
 				<?php
 				/*$tech_list = get_techniques($session['ranks_id']);
