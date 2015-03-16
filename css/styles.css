@@ -53,13 +53,20 @@ header h1 {
   font-size: 2.5em;
   color: #c7b299;
 }
-header nav li {
+header nav li,
+header nav div {
   display: inline-block;
 }
 header nav .btn-link {
   font-weight: 700;
   color: #c7b299;
-  transition: color 0.3s ease-out;
+  transition: color 0.2s ease-out;
+}
+header nav .dropdown-menu {
+  min-width: 0;
+}
+header nav .dropdown-menu li {
+  display: block;
 }
 footer {
   padding-top: 12px;
@@ -202,7 +209,6 @@ REQUIREMENTS PAGE
 .requirements .ranks ol,
 .requirements .types ol,
 .requirements .lists ol {
-  margin-left: -8px;
   list-style-position: inside;
 }
 .requirements .ranks ul li,
@@ -211,7 +217,7 @@ REQUIREMENTS PAGE
 .requirements .ranks ol li,
 .requirements .types ol li,
 .requirements .lists ol li {
-  padding: 8px 0 8px 15px;
+  padding: 8px 0 8px 10px;
 }
 .requirements .ranks ul li:hover,
 .requirements .types ul li:hover,

@@ -28,9 +28,11 @@ if (isset($_POST['submit'])) {
 			$_SESSION['user_query'] = $data; // Initializing Session
 
 			if($data['role'] == 'admin' || $data['role'] == 'superadmin') {
-				header('location: admin.php');
+				header('location: profile.php');
+				$admin = true;
 			} else {
 				header("location: profile.php"); // Redirecting To Other Page
+				$admin = false;
 			}
 		} else {
 			$error = "Username or Password is invalid";

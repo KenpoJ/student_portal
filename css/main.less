@@ -51,13 +51,20 @@ header {
 	}
 	nav {
 
-		li {
+		li, div {
 			display: inline-block;
 		}
 		.btn-link {
 			font-weight: 700;
 			color: @brownOrangeLighter;
-			transition: color .3s ease-out;
+			transition: color .2s ease-out;
+		}
+		.dropdown-menu {
+			min-width: 0;
+
+			li {
+				display: block;
+			}
 		}
 	}
 }
@@ -221,11 +228,10 @@ REQUIREMENTS PAGE
 		border-radius: 0 4px 4px 0;
 
 		ul, ol {
-			margin-left: -8px;
 			list-style-position: inside;
 
 			li {
-				padding: 8px 0 8px 15px;
+				padding: 8px 0 8px 10px;
 			}
 			li:hover {
 				cursor: pointer;
