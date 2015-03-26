@@ -24,6 +24,6 @@ if (mysqli_num_rows($result_set) != 0) {
 	// displaying records.
 	echo output_users($result_set);
 } else {
-	echo "No records are found.";
+	echo "No records found.";
 }
 ?>

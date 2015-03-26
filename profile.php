@@ -93,7 +93,7 @@ $end = $end_time->format('g:ia');
 		<div class="col-md-4 clearfix user-info">
 			<a type="button" class="close" href="announcements.php"><span class="glyphicon glyphicon-eye-open"></span> View All</a>
 			<h2>Announcements</h2>
-			<?php echo get_announcements(); ?>
+			<?php echo get_announcements(1); ?>
 		</div>
 		<div class="col-md-4">
 			<h2>My Class Times</h2>

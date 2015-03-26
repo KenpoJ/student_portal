@@ -1,6 +1,8 @@
 <?php
 include_once('inc/functions.php');
 include_once('inc/session.php');
+require_once('inc/Paginator.class.php');
+global $entry;
 
 $title = 'Announcements - DSSD Student Portal';
 ?>
@@ -15,7 +17,23 @@ $title = 'Announcements - DSSD Student Portal';
 <div class="container">
 
 	<div class="row row-margin">
-
+		<div class="col-md-8">
+			<?php
+			$entry = get_announcements(100000);
+			$date = date_create($entry['publish_date']);
+			$date = $date->format('M d, Y');
+			var_dump($entry);
+			?>
+			<ul id="announcements" class="list-unstyled">
+				<?php while($entry) { ?>
+				<li>
+					<h2><?php echo $entry['title'] ?></h2>
+					<p><?php echo $date; ?></p>
+					<p class="message"><?php echo substr($entry['body'], 0, 150) ?></p>
+				</li>
+				<?php } ?>
+			</ul>
+		</div>
 	</div>
 
 </div>

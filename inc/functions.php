@@ -185,17 +185,20 @@ function get_single_user($ranks_id, $programs_id, $id) {
 	echo $output;
 }
 
-function get_announcements() {
+function get_announcements($limit) {
 	global $connection;
 
 	$query = "SELECT * ";
 	$query .= "FROM `announcements` ";
-	$query .= "ORDER BY publish_date";
-	//echo $query;
+	$query .= "ORDER BY publish_date ";
+	$query .= "LIMIT " . $limit;
+	echo $query;
 	$message_set = mysqli_query($connection, $query);
 	confirm_query($message_set);
-	
-	$output = "<ul id=\"announcements\" class=\"list-unstyled\">";
+	$entry = mysqli_fetch_assoc($message_set);
+	return $entry;
+
+	/*$output = "<ul id=\"announcements\" class=\"list-unstyled\">";
 	while($message = mysqli_fetch_assoc($message_set)) {
 		$date = date_create($message['publish_date']);
 		$output .= "<li>";
@@ -205,7 +208,7 @@ function get_announcements() {
 		$output .= "</li>";
 	}
 	$output .= "</ul>";
-	echo $output;
+	echo $output;*/
 }
 
 function get_rank_info($ranks_id, $programs_id, $id) {

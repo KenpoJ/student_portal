@@ -16,7 +16,7 @@ class Paginator {
 		$this->_total = $rs->num_rows;
 	}
 
-	public function getData($limit = 10, $page = 1) {
+	public function getData($limit = 2, $page = 1) {
 		$this->_limit = $limit;
 		$this->_page = $page;
 
