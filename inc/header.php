@@ -8,22 +8,25 @@
 						if($_SESSION) {
 					?>
 						<li class="greeting">Hello, <?php echo $user_check['first_name'] ?></li>
-					<?php if($user_check['role'] == 'admin' || $user_check['role'] == 'superadmin') {
-					?>
-							<li class="dropdown">
-								<button class="btn btn-link dropdown-toggle" id="profileMenu" data-toggle="dropdown">My Menu <span class="caret"></span></button>
-								<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="profileMenu">
-									<li><a href="profile.php">My Profile</a></li>
-									<li><a href="admin.php">Admin Page</a></li>
-								</ul>
-							</li>
 					<?php
-						} else {
+						// if user is admin display dropdown menu 
+							if($user_check['role'] == 'admin' || $user_check['role'] == 'superadmin') {
 					?>
-						<li><a class="btn btn-link" href="profile.php">My Profile</a></li>
-					<?php } ?>
+								<li class="dropdown">
+									<button class="btn btn-link dropdown-toggle" id="profileMenu" data-toggle="dropdown">My Menu <span class="caret"></span></button>
+									<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="profileMenu">
+										<li><a href="profile.php">My Profile</a></li>
+										<li><a href="admin.php">Admin Page</a></li>
+									</ul>
+								</li>
+					<?php
+							} else {
+							// if not an admin then just display normal user menu
+					?>
+							<li><a class="btn btn-link" href="profile.php">My Profile</a></li>
+						<?php } // close $user_check if statement ?>
 						<li><a class="btn btn-link" href="inc/logout.php">Logout</a></li>
-					<?php } ?>
+					<?php } // close if($_SESSION) ?>
 				</ul>
 			</nav>
 		</div>

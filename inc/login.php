@@ -1,6 +1,8 @@
 <?php
 session_start(); // Starting Session
 include_once('/inc/db_connection.php');
+include_once('/inc/functions.php');
+global $admin;
 
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
@@ -28,12 +30,12 @@ if (isset($_POST['submit'])) {
 			$_SESSION['user_query'] = $data; // Initializing Session
 
 			if($data['role'] == 'admin' || $data['role'] == 'superadmin') {
-				header('location: profile.php');
 				$admin = true;
 			} else {
-				header("location: profile.php"); // Redirecting To Other Page
+				$msg = 'You do not have permissions to view this page';
 				$admin = false;
 			}
+			header('location: profile.php');
 		} else {
 			$error = "Username or Password is invalid";
 		}

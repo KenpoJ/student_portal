@@ -4,6 +4,14 @@ include_once('inc/session.php');
 require_once('inc/Paginator.class.php');
 global $connection;
 
+if($user_check['role'] == 'admin' || $user_check['role'] == 'superadmin') {
+	// do nothing
+} else {
+	global $msg;
+	$msg = 'You do not have permission to view that page.';
+	header('location: profile.php');
+}
+
 $title = 'My Administration Page - DSSD Student Portal';
 
 $bday = date_create($user_data['birth_date']);
