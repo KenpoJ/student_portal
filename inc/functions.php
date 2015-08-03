@@ -192,23 +192,12 @@ function get_announcements($limit) {
 	$query .= "FROM `announcements` ";
 	$query .= "ORDER BY publish_date ";
 	$query .= "LIMIT " . $limit;
-	echo $query;
+	//echo $query;
 	$message_set = mysqli_query($connection, $query);
 	confirm_query($message_set);
-	$entry = mysqli_fetch_assoc($message_set);
-	return $entry;
-
-	/*$output = "<ul id=\"announcements\" class=\"list-unstyled\">";
-	while($message = mysqli_fetch_assoc($message_set)) {
-		$date = date_create($message['publish_date']);
-		$output .= "<li>";
-		$output .= "<h4>" . $message['title'] . "</h4>";
-		$output .= "<p>" . date_format($date, 'm/d/y') . "</p>";
-		$output .= "<p class=\"message\">" . substr($message['body'], 0, 150) . "...</p>";
-		$output .= "</li>";
-	}
-	$output .= "</ul>";
-	echo $output;*/
+	//var_dump($message_set);
+	//$entry = mysqli_fetch_assoc($message_set);
+	return $message_set;
 }
 
 function get_rank_info($ranks_id, $programs_id, $id) {
