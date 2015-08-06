@@ -47,10 +47,10 @@ function rank_advancement() {
 	} else {
 		colHeight = '400px';
 	}
-	//var colHeight = lists.height();
+	var colHeight = lists.height();
 
 	// set height of columns
-	//$('div[class*="col-"]').css('min-height', colHeight);
+	$('div[class*="col-"]').css('min-height', colHeight);
 
 	// show ranks column
 	ranks.css({
@@ -70,6 +70,7 @@ function rank_advancement() {
 		'left': -listsWidth - ranksWidth + 'px',
 		'opacity': 0
 	});
+    
 	// click functions for list items
 	listItems.click(function() {
 		var gp = $(this).parent().parent();

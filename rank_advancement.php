@@ -26,27 +26,27 @@ $ranks = get_advancements_ranks($session['ranks_id'], $session['programs_id']);
 			<ul class="list-unstyled">
 				<?php
 				while($row = mysqli_fetch_array($ranks)) {
-					echo '<li id="' . $row['id'] . '">' . $row['rank'] . ' <span class="glyphicon glyphicon-menu-right"></span></li>';
+					echo '<li id="' . $row['id'] . '">' . $row['rank'] . ' <span class="glyphicon glyphicon-menu-right pull-right"></span></li>';
 				}
 				?>
 			</ul>
 		</div>
 		<div class="col-md-1 col-xs-4 types">
 			<ul class="list-unstyled">
-				<li id="techniques">Techniques <span class="glyphicon glyphicon-menu-right"></span></li>
-				<li id="forms">Forms <span class="glyphicon glyphicon-menu-right"></span></li>
-				<li id="sets">Sets <span class="glyphicon glyphicon-menu-right"></span></li>
+				<li id="techniques">Techniques <span class="glyphicon glyphicon-menu-right pull-right"></span></li>
+				<li id="forms">Forms <span class="glyphicon glyphicon-menu-right pull-right"></span></li>
+				<li id="sets">Sets <span class="glyphicon glyphicon-menu-right pull-right"></span></li>
+                <?php
+                    if($session['programs_id'] == 2) {
+                ?>
+                <li id="memorize">Memorization <span class="glyphicons glyphicon-menu-right"></span></li>
+                <?php
+                    }
+                ?>
 			</ul>
 		</div>
 		<div class="col-md-2 col-xs-4 lists">
-			<ol>
-				<?php
-				/*$tech_list = get_techniques($session['ranks_id']);
-				while($row = mysqli_fetch_array($tech_list)) {
-					echo '<li id="' . $row['name'] . '" class="lists-item">' . $row['name'] . ' <span class="glyphicon glyphicon-menu-right"></span></li>';
-				}*/
-				?>
-			</ol>
+			<!-- content added from requirements.php -->
 		</div>
 		<div class="col-md-8 display"></div>
 	</div>

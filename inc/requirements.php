@@ -24,12 +24,18 @@ if($type_id == 'sets') {
 	$query .= 'INNER JOIN `ranks` ON ranks.id = ranks_has_sets.ranks_id ';
 	$query .= 'WHERE ranks.id = ' . $rank_id;
 }
+if($type_id == 'memorize') {
+	$query = 'SELECT * FROM `memorize` ';
+	$query .= 'INNER JOIN `ranks_has_memorize` ON memorize_id = memorize.id ';
+	$query .= 'INNER JOIN `ranks` ON ranks.id = ranks_has_memorize.ranks_id ';
+	$query .= 'WHERE ranks.id = ' . $rank_id;
+}
 
 $result_set = mysqli_query($connection, $query);
 
 $output = '<ol>';
 while ($row = mysqli_fetch_array($result_set)) {
-	$output .= '<li id="' . $row['name'] . '" class="lists-item">' . $row['name'] . ' <span class="glyphicon glyphicon-menu-right"></span></li>';
+	$output .= '<li id="' . $row['name'] . '" class="lists-item">' . $row['name'] . ' <span class="glyphicon glyphicon-menu-right pull-right"></span></li>';
 }
 $output .= '</ol>';
 

@@ -98,7 +98,7 @@ function get_all_users() {
 	}
 
 	// Set how many records do you want to display per page.
-	$per_page = 10;
+	$per_page = 5;
 	$startpoint = ($page * $per_page) - $per_page;
 	$statement = "`users` ORDER BY `id` ASC"; // Change `records` according to your table name.
 
@@ -121,7 +121,7 @@ function get_all_users() {
 		echo "No records are found.";
 	}
 	// displaying paginaition.
-	echo $output;
+	//echo $output;
 	echo pagination($statement, $per_page, $page, $url='?');
 }
 
