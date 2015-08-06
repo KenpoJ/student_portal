@@ -125,7 +125,10 @@ $('.lists').on('click', 'li.lists-item', function() {
 	var str = $(this).attr('id');
 	load_lesson(str);
 });
-	
+
+//Searching and Filtering
+var selectedRadio = $('input[type="radio"][name="program"]:checked');
+
 $('#student-search').on('keyup', function(e) {
 	clearTimeout($.data(this, 'timer'));
 	var search_str = $(this).val();
@@ -137,5 +140,18 @@ $('#student-search').on('keyup', function(e) {
 	}
 	return false;
 });
+
+$('input[name="program"]').change(function() {
+    selectedRadio = $(this).val();
+    $('p.student-list-program').each(function() {
+        if($(this).text().indexOf(selectedRadio) == -1) {
+            var student = $(this).parent().parent().parent();
+            console.log(student);
+            student.hide();
+        }
+    });
+});
+    
+console.log($('p.student-list-program').text());
 
 });

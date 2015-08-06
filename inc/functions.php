@@ -107,7 +107,7 @@ function get_all_users() {
 	$query .= "ON users.ranks_id = ranks.id ";
 	$query .= "INNER JOIN `programs` ";
 	$query .= "ON users.programs_id = programs.id ";
-	$query .= "ORDER BY users.id ";
+	$query .= "ORDER BY users.last_name ";
 	$query .= "LIMIT {$startpoint} , {$per_page}";
 	
 	//$results = mysqli_query($connection,"SELECT * FROM {$statement} LIMIT {$startpoint} , {$per_page}");
@@ -115,13 +115,10 @@ function get_all_users() {
 	if (mysqli_num_rows($results) != 0) {
 		// displaying records.
 		echo output_users($results);
-	} else if(mysqli_num_rows($results) == 0) {
-		echo 'Search to display students.';
 	} else {
 		echo "No records are found.";
 	}
-	// displaying paginaition.
-	//echo $output;
+	// display paginaition.
 	echo pagination($statement, $per_page, $page, $url='?');
 }
 
@@ -133,7 +130,7 @@ function output_users($results) {
 		$output .= '<div class="col-md-4">';
 		$output .= '<img class="pull-left" src="http://placehold.it/80x80" alt="' . $row['first_name'] . ' ' . $row['last_name'] . '">';
 		$output .= '<h3>' . $row['first_name'] . ' ' . $row['last_name'] . '</h3>';
-		$output .= '<p>' . $row['rank'] . ' Belt<br>' . $row['program'] . ' Program<br></p>';
+		$output .= '<p class="student-list-rank">' . $row['rank'] . ' Belt</p><p class="student-list-program">' . $row['program'] . ' Program</p>';
 		$output .= '</div>';
 		$output .= '<div class="col-md-4"';
 		$output .= '<p>' . $row['notes'] . '</p>';

@@ -179,30 +179,36 @@ ANNOUNCEMENTS
 /*----------------------------------------
 STUDENT LIST
 ----------------------------------------*/
+#search {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: @lightBrown + #434343;
+    .border-radius;
+    border: 1px solid @lightBrown;
+    
+    label {
+        padding-top: 3px;
+    }
+}
 #student-list {
 	
 	li {
 		margin: 3px auto;
 		padding: 15px 10px;
 		overflow: hidden;
-		width: 99%;
 		background: #F5F5F5;
-		border: 1px solid #E3E3E3;
-		border-radius: 4px;
-		transition: background .1s ease-out,
-			border .1s ease-out,
-			width .2s ease-out,
-			margin .2s ease-out;
+		border: 1px solid @lightBrown + #434343;
+		.border-radius;
+		transition: background .1s ease-in,
+			transform .2s ease-in;
 
 		img {
 			margin-bottom: 0;
 		}
 	}
 	li:hover {
-		margin: 0 auto;
-		width: 100%;
+		transform: scale(1.02);
 		background: #FFF;
-		border: 1px solid @lightBrown + #444;
 	}
 	li:first-child {
 		margin-top: 0;
@@ -225,7 +231,7 @@ REQUIREMENTS PAGE
 		min-height: 400px;
 		background: #F3F3F3;
 		border-right: 1px solid @brownMedium + #999;
-		border-radius: 0 4px 4px 0;
+		.border-radius(0 4px 4px 0);
 
 		ul, ol {
 			list-style-position: inside;

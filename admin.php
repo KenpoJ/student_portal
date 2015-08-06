@@ -60,17 +60,69 @@ $programs_id = $user_data['programs_id'];
 			<div class="calendar"></div>
 		</div>
 		<div class="col-md-8">
-			<h2>
-				Student List
-				<form name="search" id="search" class= 
-				"navbar-form navbar-right" action="">
-					<div class="form-group">
-						<input type="text" id="student-search" class="form-control" placeholder="Search Students">
-						<!--button type="submit" id="student-search" class="btn btn-default">Submit</button-->
-					</div>
+			<h2>Student List</h2>
+				<form name="search" id="search" action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" id="student-search" class="form-control" placeholder="Search by Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Filter by Program</h3>
+                            <div class="form-group radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="program" id="adult" value="adult"> Adult
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="program" id="youth" value="youth"> Youth
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="program" id="junior" value="junior"> Junior
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="program" id="all" value="all" checked> All
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Filter by Rank</h3>
+                            <div class="form-group checkbox">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="white"> White
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="yellow"> Yellow
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="orange"> Orange
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="purple"> Purple
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="blue"> Blue
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="green"> Green
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="1stbrown"> 1st Brown
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="2ndbrown"> 2nd Brown
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="black"> Black
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 				</form>
-			</h2>
-			<div id="student-list">Search to display students.</div>
+			
+			<!--div id="student-list">Search to display students.</div-->
 			<?php
 				echo get_all_users();
 			?>
