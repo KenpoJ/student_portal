@@ -98,9 +98,9 @@ function get_all_users() {
 	}
 
 	// Set how many records do you want to display per page.
-	$per_page = 5;
-	$startpoint = ($page * $per_page) - $per_page;
-	$statement = "`users` ORDER BY `id` ASC"; // Change `records` according to your table name.
+	//$per_page = 5;
+	//$startpoint = ($page * $per_page) - $per_page;
+	//$statement = "`users` ORDER BY `id` ASC"; // Change `records` according to your table name.
 
 	$query = "SELECT * FROM `users` ";
 	$query .= "INNER JOIN `ranks` ";
@@ -108,18 +108,18 @@ function get_all_users() {
 	$query .= "INNER JOIN `programs` ";
 	$query .= "ON users.programs_id = programs.id ";
 	$query .= "ORDER BY users.last_name ";
-	$query .= "LIMIT {$startpoint} , {$per_page}";
+	//$query .= "LIMIT {$startpoint} , {$per_page}";
 	
 	//$results = mysqli_query($connection,"SELECT * FROM {$statement} LIMIT {$startpoint} , {$per_page}");
-	$results = mysqli_query($connection, $query);
+    $results = mysqli_query($connection, $query);
 	if (mysqli_num_rows($results) != 0) {
 		// displaying records.
 		echo output_users($results);
 	} else {
-		echo "No records are found.";
+		echo "No records found. Try searching.";
 	}
 	// display paginaition.
-	echo pagination($statement, $per_page, $page, $url='?');
+	//echo pagination($statement, $per_page, $page, $url='?');
 }
 
 function output_users($results) {

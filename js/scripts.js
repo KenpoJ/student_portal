@@ -2,22 +2,6 @@ $(document).ready(function() {
 var rank_id;
 var type_id;
 
-function student_search() {
-	var search_str = $('#student-search').val();
-	if(search_str !== '') {
-		$.ajax({
-			type: 'POST',
-			url: 'inc/search.php',
-			data: {query: search_str},
-			cache: false,
-			success: function(html) {
-				$('#student-list').html(html);
-			}
-		});
-	}
-	return false;
-}
-
 function find_techniques_for_rank(rank_id) {
 	$.ajax({
 		type: 'POST',
@@ -127,13 +111,45 @@ $('.lists').on('click', 'li.lists-item', function() {
 });
 
 //Searching and Filtering
+var baseQuery = 'SELECT * FROM `users` INNER JOIN `ranks` ON users.ranks_id = ranks.id INNER JOIN `programs` ON users.programs_id = programs.id ORDER BY users.last_name';
 var selectedRadio = $('input[type="radio"][name="program"]:checked');
+var ajaxQuery = function(search_str) {
+    $.ajax({
+        type: 'POST',
+        url: 'inc/search.php',
+        data: {query: search_str},
+        cache: false,
+        success: function(html) {
+            $('#student-list').html(html);
+        }
+    });
+}
+var radioQuery = function(radio_str) {
+    $.ajax({
+        type: 'POST',
+        url: 'inc/search.php',
+        data: {query: radio_str},
+        cache: false,
+        success: function(html) {
+            $('#student-list').html(html);
+        }
+    });
+}
+
+function student_search() {
+	var search_str = $('#student-search').val();
+	if(search_str !== '') {
+		ajaxQuery(search_str);
+    }
+	return false;
+}
+    
 
 $('#student-search').on('keyup', function(e) {
 	clearTimeout($.data(this, 'timer'));
 	var search_str = $(this).val();
 	if(search_str == '') {
-		$('#student-list').html('<p>Search to display students.</p>');
+        ajaxQuery(search_str);
 	} else {
 		$('#student-list').fadeIn();
 		$(this).data('timer', setTimeout(student_search, 100));
@@ -142,16 +158,19 @@ $('#student-search').on('keyup', function(e) {
 });
 
 $('input[name="program"]').change(function() {
-    selectedRadio = $(this).val();
-    $('p.student-list-program').each(function() {
-        if($(this).text().indexOf(selectedRadio) == -1) {
-            var student = $(this).parent().parent().parent();
-            console.log(student);
-            student.hide();
-        }
-    });
+    var program = $(this).val();
+    radioQuery(program);
 });
     
-console.log($('p.student-list-program').text());
+    
+/*$('p.student-list-program').each(function() {
+    if($(this).text().indexOf(selectedRadio) == -1) {
+        var student = $(this).parent().parent().parent();
+        //console.log(student);
+        student.hide();
+    }
+});*/
+    
+//console.log($('p.student-list-program').text());
 
 });
