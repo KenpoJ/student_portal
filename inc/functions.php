@@ -193,9 +193,8 @@ function get_announcements($limit) {
 	$message_set = mysqli_query($connection, $query);
 	confirm_query($message_set);
 	//var_dump($message_set);
-	$entry = mysqli_fetch_object($message_set);
-	//return $message_set;
-	return $entry;
+	//$entry = mysqli_fetch_object($message_set);
+	return $message_set;
 }
 
 function get_rank_info($ranks_id, $programs_id, $id) {

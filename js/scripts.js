@@ -54,7 +54,7 @@ function rank_advancement() {
 		'left': -listsWidth - ranksWidth + 'px',
 		'opacity': 0
 	});
-    
+
 	// click functions for list items
 	listItems.click(function() {
 		var gp = $(this).parent().parent();
@@ -123,7 +123,7 @@ var ajaxQuery = function(search_str) {
             $('#student-list').html(html);
         }
     });
-}
+};
 var radioQuery = function(radio_str) {
     $.ajax({
         type: 'POST',
@@ -134,7 +134,7 @@ var radioQuery = function(radio_str) {
             $('#student-list').html(html);
         }
     });
-}
+};
 
 function student_search() {
 	var search_str = $('#student-search').val();
@@ -143,7 +143,7 @@ function student_search() {
     }
 	return false;
 }
-    
+
 
 $('#student-search').on('keyup', function(e) {
 	clearTimeout($.data(this, 'timer'));
@@ -161,8 +161,8 @@ $('input[name="program"]').change(function() {
     var program = $(this).val();
     radioQuery(program);
 });
-    
-    
+
+
 /*$('p.student-list-program').each(function() {
     if($(this).text().indexOf(selectedRadio) == -1) {
         var student = $(this).parent().parent().parent();
@@ -170,7 +170,7 @@ $('input[name="program"]').change(function() {
         student.hide();
     }
 });*/
-    
+
 //console.log($('p.student-list-program').text());
 
 });
