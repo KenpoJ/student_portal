@@ -194,7 +194,18 @@ function get_announcements($limit) {
 	confirm_query($message_set);
 	//var_dump($message_set);
 	//$entry = mysqli_fetch_object($message_set);
-	return $message_set;
+	//return $message_set;
+	$output = "<ul id=\"announcements\" class=\"list-unstyled\">";
+    while($message = mysqli_fetch_assoc($message_set)) {
+        $date = date_create($message['publish_date']);
+        $output .= "<li>";
+        $output .= "<h4>" . $message['title'] . "</h4>";
+        $output .= "<p>" . date_format($date, 'm/d/y') . "</p>";
+        $output .= "<p class=\"message\">" . substr($message['body'], 0, 150) . "...</p>";
+        $output .= "</li>";
+    }
+    $output .= "</ul>";
+    echo $output;
 }
 
 function get_rank_info($ranks_id, $programs_id, $id) {

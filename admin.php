@@ -41,20 +41,10 @@ $programs_id = $user_data['programs_id'];
 			</div>
             <a type="button" class="close" href="announcements.php"><span class="glyphicon glyphicon-eye-open"></span> View All</a>
 			<h2>Announcements</h2>
-			<?php 
+			<?php
 				$entry = get_announcements(2);
 
-                $output = "<ul id=\"announcements\" class=\"list-unstyled\">";
-                while($message = mysqli_fetch_assoc($entry)) {
-                    $date = date_create($message['publish_date']);
-                    $output .= "<li>";
-                    $output .= "<h4>" . $message['title'] . "</h4>";
-                    $output .= "<p>" . date_format($date, 'm/d/y') . "</p>";
-                    $output .= "<p class=\"message\">" . substr($message['body'], 0, 150) . "...</p>";
-                    $output .= "</li>";
-                }
-                $output .= "</ul>";
-                echo $output;
+
 			?>
 			<h2>Calendar</h2>
 			<div class="calendar"></div>
@@ -121,7 +111,7 @@ $programs_id = $user_data['programs_id'];
                         </div>
                     </div>
 				</form>
-			
+
 			<!--div id="student-list">Search to display students.</div-->
 			<?php
 				echo get_all_users();
