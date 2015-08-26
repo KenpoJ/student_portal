@@ -109,7 +109,7 @@ function get_all_users() {
 	$query .= "ON users.programs_id = programs.id ";
 	$query .= "ORDER BY users.last_name ";
 	//$query .= "LIMIT {$startpoint} , {$per_page}";
-	
+
 	//$results = mysqli_query($connection,"SELECT * FROM {$statement} LIMIT {$startpoint} , {$per_page}");
     $results = mysqli_query($connection, $query);
 	if (mysqli_num_rows($results) != 0) {
@@ -193,8 +193,9 @@ function get_announcements($limit) {
 	$message_set = mysqli_query($connection, $query);
 	confirm_query($message_set);
 	//var_dump($message_set);
-	//$entry = mysqli_fetch_assoc($message_set);
-	return $message_set;
+	$entry = mysqli_fetch_object($message_set);
+	//return $message_set;
+	return $entry;
 }
 
 function get_rank_info($ranks_id, $programs_id, $id) {
@@ -205,28 +206,28 @@ function get_rank_info($ranks_id, $programs_id, $id) {
 
 function changeUserInfo() {
 	if(isset($_POST['submitted'])) {
-		
+
 	} else {
 		echo 'not submitted';
 	}
 }
 
-function pagination($query, $per_page = 10, $page = 1, $url = '?') {   
+function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 	global $connection;
 
 	$query = "SELECT COUNT(*) as `num` FROM {$query}";
 	$row = mysqli_fetch_array(mysqli_query($connection, $query));
 	$total = $row['num'];
-	$adjacents = "2"; 
+	$adjacents = "2";
 
 	$prevlabel = "&lsaquo; Prev";
 	$nextlabel = "Next &rsaquo;";
 	$lastlabel = "Last &rsaquo;&rsaquo;";
 
-	$page = ($page == 0 ? 1 : $page);  
-	$start = ($page - 1) * $per_page;                               
+	$page = ($page == 0 ? 1 : $page);
+	$start = ($page - 1) * $per_page;
 
-	$prev = $page - 1;                          
+	$prev = $page - 1;
 	$next = $page + 1;
 
 	$lastpage = ceil($total / $per_page);
@@ -234,11 +235,11 @@ function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 	$lpm1 = $lastpage - 1; // //last page minus 1
 
 	$pagination = "";
-	if($lastpage > 1) {   
+	if($lastpage > 1) {
 		$pagination .= "<ul class='pagination'>";
 		//$pagination .= "<li class='page_info pull-right'>Page {$page} of {$lastpage}</li>";
 
-		if($page > 1) { 
+		if($page > 1) {
 			$pagination.= "<li><a href='{$url}page={$prev}'>{$prevlabel}</a></li>";
 		}
 
@@ -248,7 +249,7 @@ function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 					$pagination.= "<li><a class='active'>{$counter}</a></li>";
 				} else {
 					$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";
-				}                  
+				}
 			}
 		} elseif($lastpage > 5 + ($adjacents * 2)) {
 			if($page < 1 + ($adjacents * 2)) {
@@ -261,7 +262,7 @@ function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 				}
 				$pagination.= "<li class='dot'>...</li>";
 				$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
-				$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";  
+				$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";
 			} elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
 				$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
 				$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
@@ -271,7 +272,7 @@ function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 					$pagination.= "<li><a class='active'>{$counter}</a></li>";
 					} else {
 					$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";
-					}                  
+					}
 				}
 				$pagination.= "<li class='dot'>..</li>";
 				$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
@@ -293,7 +294,7 @@ function pagination($query, $per_page = 10, $page = 1, $url = '?') {
 			$pagination.= "<li><a href='{$url}page={$next}'>{$nextlabel}</a></li>";
 			$pagination.= "<li><a href='{$url}page=$lastpage'>{$lastlabel}</a></li>";
 		}
-		$pagination.= "</ul>";     
+		$pagination.= "</ul>";
 	}
 	return $pagination;
 }

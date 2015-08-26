@@ -1,7 +1,7 @@
 <?php
 
 // -------- FORM VALIDATIOMS --------- //
-$errors = [];
+$errors = array();
 function validate_presence_on($required_fields) {
 	global $errors;
 	foreach($required_fields as $field) {
@@ -17,7 +17,7 @@ function has_presence($value) {
 }
 
 //has_length($first_name, ['min' => 5, 'max' => 100])
-function has_length($value, $options=[]) {
+function has_length($value, $options=array()) {
 	if(isset($options['max']) && (strlen($value) > (int)$options['max'])) {
 		return false;
 	}
@@ -36,7 +36,7 @@ function has_format_matching($value, $regex="//") {
 }
 
 //has_number($items_to_order, ['min' => 1, 'max' => 5])
-function has_number($value, $options=[]) {
+function has_number($value, $options=array()) {
 	if(!is_numeric($value)) {
 		return false;
 	}
@@ -49,11 +49,11 @@ function has_number($value, $options=[]) {
 	return true;
 }
 
-function has_inclusion_in($value, $set = []) {
+function has_inclusion_in($value, $set = array()) {
 	return in_array($value, $set);
 }
 
-function has_exclusion_from($value, $set = []) {
+function has_exclusion_from($value, $set = array()) {
 	return !in_array($value, $set);
 }
 

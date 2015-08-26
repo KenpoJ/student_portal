@@ -19,19 +19,23 @@ $title = 'Announcements - DSSD Student Portal';
 	<div class="row row-margin">
 		<div class="col-md-8">
 			<?php
-			$entry = get_announcements(100000);
+			$limit = 5;
+			$entry = get_announcements($limit);
+            //$entry = mysqli_fetch_assoc($entry);
+            var_dump($entry);
 			$date = date_create($entry['publish_date']);
 			$date = $date->format('M d, Y');
-			var_dump($entry);
 			?>
 			<ul id="announcements" class="list-unstyled">
-				<?php while($entry) { ?>
+				<?php
+				$i = 0;
+				while($i < $limit) { ?>
 				<li>
 					<h2><?php echo $entry['title'] ?></h2>
 					<p><?php echo $date; ?></p>
 					<p class="message"><?php echo substr($entry['body'], 0, 150) ?></p>
 				</li>
-				<?php } ?>
+				<?php $i++; } ?>
 			</ul>
 		</div>
 	</div>
