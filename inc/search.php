@@ -3,6 +3,7 @@ include_once('db_connection.php');
 include_once('functions.php');
 global $connection;
 
+//Search by Name
 $str = $_POST['query'];
 $str = preg_replace("/[^A-Za-z0-9]/", " ", $_POST['query']);
 $str = mysqli_real_escape_string($connection, $str);
@@ -24,6 +25,7 @@ if($str == 'adult' || $str == 'youth' || $str == 'junior') {
     $query .= "ON users.ranks_id = ranks.id ";
     $query .= "INNER JOIN `programs` ";
     $query .= "WHERE users.programs_id = " . $str . " ";
+    $query .= "AND programs.id = users.programs_id ";
     $query .= "GROUP BY users.id ";
     //$query .= "ORDER BY users.id ";
 
@@ -48,7 +50,9 @@ if($str == 'adult' || $str == 'youth' || $str == 'junior') {
     $query .= "ORDER BY users.id ";
 }
 
-$result_set = mysqli_query($connection, $query);
+get_all_users($query);
+
+/*$result_set = mysqli_query($connection, $query);
 //$result = mysqli_fetch_assoc($result_set);
 
 if (mysqli_num_rows($result_set) != 0) {
@@ -57,5 +61,5 @@ if (mysqli_num_rows($result_set) != 0) {
 } else {
 	echo "No records found.";
     //get_all_users();
-}
+}*/
 ?>

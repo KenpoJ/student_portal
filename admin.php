@@ -40,12 +40,10 @@ $programs_id = $user_data['programs_id'];
 				?>
 			</div>
             <a type="button" class="close" href="announcements.php"><span class="glyphicon glyphicon-eye-open"></span> View All</a>
+
 			<h2>Announcements</h2>
-			<?php
-				$entry = get_announcements(2);
+			<?php get_announcements(2); ?>
 
-
-			?>
 			<h2>Calendar</h2>
 			<div class="calendar"></div>
 		</div>

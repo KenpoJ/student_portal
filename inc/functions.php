@@ -89,37 +89,42 @@ function get_class_times($ranks_id) {
 	return $class;
 }
 
-function get_all_users() {
+function get_all_users($query = "") {
 	global $connection;
 
+    echo $query;
 	$page = (int)(!isset($_GET["page"]) ? 1 : $_GET["page"]);
 	if($page <= 0) {
 		$page = 1;
 	}
 
 	// Set how many records do you want to display per page.
-	//$per_page = 5;
-	//$startpoint = ($page * $per_page) - $per_page;
-	//$statement = "`users` ORDER BY `id` ASC"; // Change `records` according to your table name.
+	$per_page = 5;
+	$startpoint = ($page * $per_page) - $per_page;
+	$statement = "`users` ORDER BY `id` ASC";
 
-	$query = "SELECT * FROM `users` ";
-	$query .= "INNER JOIN `ranks` ";
-	$query .= "ON users.ranks_id = ranks.id ";
-	$query .= "INNER JOIN `programs` ";
-	$query .= "ON users.programs_id = programs.id ";
-	$query .= "ORDER BY users.last_name ";
-	//$query .= "LIMIT {$startpoint} , {$per_page}";
+    if($query == '') {
+        $query = "SELECT * FROM `users` ";
+        $query .= "INNER JOIN `ranks` ";
+        $query .= "ON users.ranks_id = ranks.id ";
+        $query .= "INNER JOIN `programs` ";
+        $query .= "ON users.programs_id = programs.id ";
+        $query .= "ORDER BY users.last_name ";
+        $query .= "LIMIT {$startpoint} , {$per_page}";
+    } else {
+        $query = $query;
+    }
 
-	//$results = mysqli_query($connection,"SELECT * FROM {$statement} LIMIT {$startpoint} , {$per_page}");
+	$results = mysqli_query($connection,"SELECT * FROM {$statement} LIMIT {$startpoint} , {$per_page}");
     $results = mysqli_query($connection, $query);
 	if (mysqli_num_rows($results) != 0) {
 		// displaying records.
 		echo output_users($results);
+        // display paginaition.
+        echo pagination($statement, $per_page, $page, $url='?');
 	} else {
 		echo "No records found. Try searching.";
 	}
-	// display paginaition.
-	//echo pagination($statement, $per_page, $page, $url='?');
 }
 
 function output_users($results) {
