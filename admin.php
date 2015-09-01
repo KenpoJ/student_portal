@@ -33,17 +33,17 @@ $programs_id = $user_data['programs_id'];
 
 	<div class="row row-margin">
 		<div class="col-md-4 clearfix user-info">
-			<h2>Administrator Info</h2>
+			<!--<h2>Administrator Info</h2>
 			<div class="well well-small">
 				<?php
-					get_single_user($ranks_id, $programs_id, $user_id);
+					//get_single_user($ranks_id, $programs_id, $user_id);
 				?>
 			</div>
             <a type="button" class="close" href="announcements.php"><span class="glyphicon glyphicon-eye-open"></span> View All</a>
 
 			<h2>Announcements</h2>
-			<?php get_announcements(2); ?>
-
+			<?php //get_announcements(2); ?>
+            -->
 			<h2>Calendar</h2>
 			<div class="calendar"></div>
 		</div>
